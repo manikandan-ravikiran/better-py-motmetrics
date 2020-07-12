@@ -1,12 +1,12 @@
 
 
-[![PyPI version](https://badge.fury.io/py/motmetrics.svg)](https://badge.fury.io/py/motmetrics) [![](https://travis-ci.org/cheind/py-motmetrics.svg?branch=master)](https://travis-ci.org/cheind/py-motmetrics)
+[![PyPI version](https://badge.fury.io/py/motmetrics.svg)](https://badge.fury.io/py/motmetrics) [![](https://travis-ci.org/cheind/better-py-motmetrics.svg?branch=master)](https://travis-ci.org/cheind/better-py-motmetrics)
 
-## py-motmetrics
+## better-better-py-motmetrics
 
-The **py-motmetrics** library provides a Python implementation of metrics for benchmarking multiple object trackers (MOT).
+The **better-py-motmetrics** library provides a Python implementation of metrics for benchmarking multiple object trackers (MOT) with better error analysis tools and examples.
 
-While benchmarking single object trackers is rather straightforward, measuring the performance of multiple object trackers needs careful design as multiple correspondence constellations can arise (see image below). A variety of methods have been proposed in the past and while there is no general agreement on a single method, the methods of [[1,2,3,4]](#References) have received considerable attention in recent years. **py-motmetrics** implements these [metrics](#Metrics).
+While benchmarking single object trackers is rather straightforward, measuring the performance of multiple object trackers needs careful design as multiple correspondence constellations can arise (see image below). A variety of methods have been proposed in the past and while there is no general agreement on a single method, the methods of [[1,2,3,4]](#References) have received considerable attention in recent years. **better-py-motmetrics** implements these [metrics](#Metrics).
 
 <div style="text-align:center;">
 
@@ -15,7 +15,7 @@ While benchmarking single object trackers is rather straightforward, measuring t
 *Pictures courtesy of Bernardin, Keni, and Rainer Stiefelhagen [[1]](#References)*
 </div>
 
-In particular **py-motmetrics** supports `CLEAR-MOT`[[1,2]](#References) metrics and `ID`[[4]](#References) metrics. Both metrics attempt to find a minimum cost assignment between ground truth objects and predictions. However, while CLEAR-MOT solves the assignment problem on a local per-frame basis, `ID-MEASURE` solves the bipartite graph matching by finding the minimum cost of objects and predictions over all frames. This [blog-post](https://web.archive.org/web/20190413133409/http://vision.cs.duke.edu:80/DukeMTMC/IDmeasures.html) by Ergys illustrates the differences in more detail.
+In particular **better-py-motmetrics** supports `CLEAR-MOT`[[1,2]](#References) metrics and `ID`[[4]](#References) metrics. Both metrics attempt to find a minimum cost assignment between ground truth objects and predictions. However, while CLEAR-MOT solves the assignment problem on a local per-frame basis, `ID-MEASURE` solves the bipartite graph matching by finding the minimum cost of objects and predictions over all frames. This [blog-post](https://web.archive.org/web/20190413133409/http://vision.cs.duke.edu:80/DukeMTMC/IDmeasures.html) by Ergys illustrates the differences in more detail.
 
 ### Features at a glance
 - *Variety of metrics* <br/>
@@ -32,7 +32,7 @@ Events and summaries are utilizing [pandas][pandas] for data structures and anal
 <a name="Metrics"></a>
 ### Metrics
 
-**py-motmetrics** implements the following metrics. The metrics have been aligned with what is reported by [MOTChallenge][MOTChallenge] benchmarks.
+**better-py-motmetrics** implements the following metrics. The metrics have been aligned with what is reported by [MOTChallenge][MOTChallenge] benchmarks.
 
 ```python
 import motmetrics as mm
@@ -76,7 +76,7 @@ id_global_assignment| `dict` ID measures: Global min-cost assignment for ID meas
 <a name="MOTChallengeCompatibility"></a>
 ### MOTChallenge compatibility
 
-**py-motmetrics** produces results compatible with popular [MOTChallenge][MOTChallenge] benchmarks. Below are two results taken from MOTChallenge [Matlab devkit][devkit] corresponding to the results of the CEM tracker on the training set of the 2015 MOT 2DMark.
+**better-py-motmetrics** produces results compatible with popular [MOTChallenge][MOTChallenge] benchmarks. Below are two results taken from MOTChallenge [Matlab devkit][devkit] corresponding to the results of the CEM tracker on the training set of the 2015 MOT 2DMark.
 
 ```
 
@@ -90,7 +90,7 @@ TUD-Stadtmitte
 
 ```
 
-In comparison to **py-motmetrics**
+In comparison to **better-py-motmetrics**
 
 ```
                 IDF1   IDP   IDR  Rcll  Prcn GT MT PT ML FP  FN IDs  FM  MOTA  MOTP
@@ -100,7 +100,7 @@ TUD-Stadtmitte 64.5% 82.0% 53.1% 60.9% 94.0% 10  5  4  1 45 452   7   6 56.4% 0.
 
 Besides naming conventions, the only obvious differences are
 - Metric `FAR` is missing. This metric is given implicitly and can be recovered by `FalsePos / Frames * 100`.
-- Metric `MOTP` seems to be off. To convert compute `(1 - MOTP) * 100`. [MOTChallenge][MOTChallenge] benchmarks compute `MOTP` as percentage, while **py-motmetrics** sticks to the original definition of average distance over number of assigned objects [[1]](#References).
+- Metric `MOTP` seems to be off. To convert compute `(1 - MOTP) * 100`. [MOTChallenge][MOTChallenge] benchmarks compute `MOTP` as percentage, while **better-py-motmetrics** sticks to the original definition of average distance over number of assigned objects [[1]](#References).
 
 You can compare tracker results to ground truth in MOTChallenge format by
 ```
@@ -115,7 +115,7 @@ python -m motmetrics.apps.evaluateTracking --help
 
 #### PyPi and development installs
 
-To install **py-motmetrics** use `pip`
+To install **better-py-motmetrics** use `pip`
 
 ```
 pip install motmetrics
@@ -130,14 +130,14 @@ pip install -e <path/to/setup.py>
 ```
 
 #### Conda
-In case you are using Conda, a simple way to run **py-motmetrics** is to create a virtual environment with all the necessary dependencies
+In case you are using Conda, a simple way to run **better-py-motmetrics** is to create a virtual environment with all the necessary dependencies
 
 ```
 conda env create -f environment.yml
 > activate motmetrics-env
 ```
 
-Then activate / source the `motmetrics-env` and install **py-motmetrics** and run the tests.
+Then activate / source the `motmetrics-env` and install **better-py-motmetrics** and run the tests.
 
 ```
 activate motmetrics-env
@@ -303,7 +303,7 @@ part           2 50.00%  0.166667
 """
 ```
 
-For MOTChallenge **py-motmetrics** provides predefined metric selectors, formatters and metric names, so that the result looks alike what is provided via their Matlab `devkit`.
+For MOTChallenge **better-py-motmetrics** provides predefined metric selectors, formatters and metric names, so that the result looks alike what is provided via their Matlab `devkit`.
 
 ```python
 summary = mh.compute_many(
@@ -400,7 +400,7 @@ mm.distances.iou_matrix(a, b, max_iou=0.5)
 
 <a name="SolverBackends"></a>
 #### Solver backends
-For large datasets solving the minimum cost assignment becomes the dominant runtime part. **py-motmetrics** therefore supports these solvers out of the box
+For large datasets solving the minimum cost assignment becomes the dominant runtime part. **better-py-motmetrics** therefore supports these solvers out of the box
   - `lapsolver` - https://github.com/cheind/py-lapsolver
   - `lapjv` - https://github.com/gatagat/lap
   - `scipy` - https://github.com/scipy/scipy/tree/master/scipy
@@ -412,7 +412,7 @@ A comparison for different sized matrices is shown below (taken from [here](http
 Please note that the x-axis is scaled logarithmically. Missing bars indicate excessive runtime or errors in returned result.
 ![](https://github.com/cheind/py-lapsolver/raw/master/lapsolver/etc/benchmark-dtype-numpy.float32.png)
 
-By default **py-motmetrics** will try to find a LAP solver in the order of the list above. In order to temporarly replace the default solver use
+By default **better-py-motmetrics** will try to find a LAP solver in the order of the list above. In order to temporarly replace the default solver use
 
 ```python
 costs = ...
@@ -423,7 +423,7 @@ with lap.set_default_solver(mysolver):
 ```
 
 ### Running tests
-**py-motmetrics** uses the pytest framework. To run the tests, simply `cd` into the source directly and run `pytest`.
+**better-py-motmetrics** uses the pytest framework. To run the tests, simply `cd` into the source directly and run `pytest`.
 
 <a name="References"></a>
 ### References
@@ -441,7 +441,7 @@ Computer Vision and Pattern Recognition, 2009. CVPR 2009. IEEE Conference on. IE
 /data/test directory should contain your results.
 
 You can check usage and directory listing at
-https://github.com/cheind/py-motmetrics/blob/master/motmetrics/apps/eval_motchallenge.py
+https://github.com/cheind/better-py-motmetrics/blob/master/motmetrics/apps/eval_motchallenge.py
 
 #### Build Image
 docker build -t desired-image-name -f Dockerfile .
@@ -451,6 +451,13 @@ docker run desired-image-name
 
 (credits to [christosavg](https://github.com/christosavg))
 
+#### Credits
+
+```
+The code is extension to and would not be possible without works of [cheind](https://github.com/cheind/py-motmetrics. 
+Currently this repository is under development.  
+The code is decoupled from original repository, to reduce bugs and other issues. In future, we may merge into the original repository.
+```
 ### License
 
 ```
