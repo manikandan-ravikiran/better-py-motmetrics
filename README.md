@@ -1,7 +1,7 @@
 
 
-[![PyPI version](https://badge.fury.io/py/motmetrics.svg)](https://badge.fury.io/py/motmetrics) [![](https://travis-ci.org/cheind/better-py-motmetrics.svg?branch=master)](https://travis-ci.org/cheind/better-py-motmetrics)
-
+<!-- [![PyPI version](https://badge.fury.io/py/motmetrics.svg)](https://badge.fury.io/py/motmetrics) [![](https://travis-ci.org/cheind/better-py-motmetrics.svg?branch=master)](https://travis-ci.org/cheind/better-py-motmetrics)
+ -->
 ## better-better-py-motmetrics
 
 The **better-py-motmetrics** library provides a Python implementation of metrics for benchmarking multiple object trackers (MOT) with better error analysis tools and examples.
@@ -453,11 +453,8 @@ docker run desired-image-name
 
 #### Credits
 
-```
-The code is extension to and would not be possible without works of [cheind](https://github.com/cheind/py-motmetrics. 
-Currently this repository is under development.  
-The code is decoupled from original repository, to reduce bugs and other issues. In future, we may merge into the original repository.
-```
+The code is extension to and would not be possible without works of [cheind](https://github.com/cheind/py-motmetrics).  Currently this repository is under development. The code is decoupled from original repository, to reduce bugs and other issues. In future, we may merge into the original repository.
+
 ### License
 
 ```
